@@ -5,15 +5,14 @@ import java.util.Objects;
 public class Quote {
 
     private final int id;
-    protected final String author;
-    protected final String quote;
+    private final String author;
+    private final String quote;
     private boolean favourite;
 
-    public Quote(int id, String author, String quote, boolean favourite) {
+    public Quote(int id, String author, String quote) {
         this.id = id;
         this.author = author;
         this.quote = quote;
-        this.favourite = favourite;
     }
 
     public boolean isFavourite() {
@@ -32,9 +31,8 @@ public class Quote {
         return quote;
     }
 
-    public boolean setFavourite(boolean favourite) {
+    public void setFavourite(boolean favourite) {
         this.favourite = favourite;
-        return favourite;
     }
 
     @Override

@@ -56,10 +56,10 @@ public class QuoteServices {
         return result;
     }
 
-    public List<String> getRandomQuote(){
+    public List<String> getRandomQuote(int maxBound){
         int randomNumber;
         Random random = new Random();
-        randomNumber = random.nextInt(5345);
+        randomNumber = random.nextInt(maxBound);
         List<String> result = new ArrayList<>();
         for(Quote element : quotes){
             if(element.getId() == randomNumber){
@@ -69,8 +69,3 @@ public class QuoteServices {
         return result;
     }
 }
-
-
-
-
-

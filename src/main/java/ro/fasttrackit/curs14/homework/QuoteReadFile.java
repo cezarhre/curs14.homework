@@ -8,16 +8,16 @@ import java.util.regex.Pattern;
 
 public class QuoteReadFile {
 
-    protected final List<Quote> quoteList;
+    private final String path;
 
-    public QuoteReadFile(){
-        quoteList = new ArrayList<>();
+    public QuoteReadFile(String path){
+        this.path = path;
     }
 
     public List<Quote> getQuoteList() throws Exception {
         int id = 0;
         List<Quote> result = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("files/quotes.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 result.add(readQuoteFromLine(++id,line));
@@ -28,6 +28,6 @@ public class QuoteReadFile {
 
     public Quote readQuoteFromLine(int id, String line) {
         String[] tokens = line.split(Pattern.quote("~"));
-        return new Quote(id, tokens[0], tokens[1],false);
+        return new Quote(id, tokens[0], tokens[1]);
     }
 }
